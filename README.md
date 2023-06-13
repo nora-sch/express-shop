@@ -38,3 +38,6 @@ create .env and .gitignore <br />
 node_modules
 .env
 ```
+```
+npm install @faker-js/faker --save-dev
+```
