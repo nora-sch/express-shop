@@ -8,6 +8,7 @@ const createOne =
   "INSERT INTO users (first_name, last_name, email, created_at, updated_at, is_admin) VALUES(?, ?, ?, ?, ?, ?)";
 const updateFirstnameOne =
   "UPDATE users SET first_name = ?, updated_at = ? WHERE id = ?";
+const deleteOne = "DELETE FROM users WHERE id = ?";
 
 const dateToday = new Date().toISOString().slice(0, 10);
 
@@ -78,4 +79,18 @@ router.put("/:id", (req, res) => {
   );
 });
 
+router.delete("/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  dbConnection.query(deleteOne, [id], (err, result, fields) => {
+    if (!err) {
+      if (result.affectedRows === 0) {
+        res.status(404).send("Not Found");
+      } else {
+        res.sendStatus(202);
+      }
+    } else {
+      res.status(500).send("Error editing the user");
+    }
+  });
+});
 module.exports = router;
