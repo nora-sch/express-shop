@@ -1,7 +1,11 @@
 const express = require('express');
+require("dotenv").config();
 const app = express();
-const port = 5000;
+const port = process.env.PORT;
+const seedRouter = require("./routes/seed");
 
+// app.get('/')
+app.use("/seed", seedRouter);
 
 app.listen(port, (err) => {
   if (err) {

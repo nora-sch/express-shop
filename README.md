@@ -38,6 +38,15 @@ create .env and .gitignore <br />
 node_modules
 .env
 ```
+*.env*
+```
+PORT = REPLACE_YOUR_SERVER_PORT
+DB_HOST = REPLACE_YOUR_HOST
+DB_PORT = REPLACE_YOUR_DB_PORT
+DB_USER = REPLACE_YOUR_DB_USER
+DB_PASSWORD = REPLACE_YOUR_DB_PASSWORD
+DB_NAME = REPLACE_YOUR_DB_NAME
+```
 ```
 npm install @faker-js/faker --save-dev
 ```
